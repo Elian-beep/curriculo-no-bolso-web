@@ -6,6 +6,26 @@
     <title>Novo usuário</title>
 </head>
 <body>
-    
+<form method="post"action="">
+    <label for="nome_completo" >Nome Completo</label>
+    <br>
+    <input name ="nome_completo" type ="text" placeholder="Digite seu Nome" required>
+
+    <br><br>
+
+    <label for="email" >E-mail</label>
+    <br>
+    <input name ="email" type ="email" placeholder="Digite seu Email" required>
+
+    <br><br>
+
+    <label for="senha">Senha</label>
+    <br>
+    <input name="senha" type=password placeholder="Digite sua Senha" required>
+    <br>
+    <button type="submit">Cadastrar</button>
+
+
+</form>    
 </body>
 </html>
