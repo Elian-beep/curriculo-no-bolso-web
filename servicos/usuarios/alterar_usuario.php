@@ -6,7 +6,7 @@ if(isset($_POST["alterar"])){
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    $sql = "UPDATE usuarios SET nome_completo='$nome_completo' , email= '$email', senha= '$senha';";
+    $sql = "UPDATE usuarios SET nome_completo='$nome_completo' , email= '$email', senha= '$senha' WHERE id='$id';";
     $result = $conexao->query($sql);
 }else{
     header("Location: ");
