@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Certificado</title>
+    <title>Cadastro de Experiencia</title>
 </head>
 <body>
-
-<form method="post" action="../servicos/certificacoes/cadastrar_certificacao.php">
-
-    <label for="instituicao">Nome da instituicao</label>
+<form method="post" action="../serviços/experiencias/cadastrar_experiancia.php">
+    <label for="empresa" >Nome da Empresa</label>
     <br>
-    <input  name="instituicao" type="text" required>
+    <input name="empresa" type="text" required>
 
     <br><br>
 
-    <label for="curso">Nome do Curso</label>
+    <label for="cargo">Cargo Ocupado</label>
     <br>
-    <input name="curso" type="text" required>
+    <input name="cargo" type="text" required>
+
+    <br><br>
+    
+    <label for="inicio">Ano de Inicio</label>
+    <input name="inicio" type="number" required>
+
+    <br><br>
 
     <label for="termino">Ano de Termino</label>
     <input name="termino" type="number" required>
 
     <br><br>
 
-    <label for="descricao">Descrição do Certificado</label>
+    <label for="descricao">Descrição da Experiencia</label>
     <br>
     <textarea name="descricao" type="text" placeholder="Escreva Aqui"></textarea>
 
@@ -33,6 +38,5 @@
     <input type="submit" name="cadastrar" value="Cadastrar" />
 
 </form>
-    
 </body>
 </html>
