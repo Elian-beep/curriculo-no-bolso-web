@@ -5,7 +5,7 @@ if(isset($_POST["cadastrar"])){
     $cargo = $_POST["cargo"];
     $inicio = $_POST["inicio"];
     $termino = $_POST["termino"];
-    $descricao =$_POST["descricao"]
+    $descricao =$_POST["descricao"];
     $id_usuario = $_POST["id_usuario"];
 
     $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa', '$cargo', '$inicio' , '$termino', '$descricao', '$id_usuario');";

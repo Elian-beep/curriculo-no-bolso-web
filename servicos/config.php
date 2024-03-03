@@ -1,7 +1,7 @@
 <?php
 $dbHost = "localhost";
 $dbUsuario = "root";
-$dbSenha = "";
+$dbSenha = "root";
 $dbNome = "curriculo_de_bolso";
 
 $conexao = new mysqli($dbHost, $dbUsuario, $dbSenha, $dbNome);
