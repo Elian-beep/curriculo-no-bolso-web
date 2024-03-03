@@ -7,17 +7,18 @@
 </head>
 <body>
 
-<form method="post" action="">
+<form method="post" action="../servicos/certificacoes/cadastrar_certificacao.php">
 
     <label for="instituicao">Nome da instituicao</label>
     <br>
-    <input  name="isntituicao" type="text" required>
+    <input  name="instituicao" type="text" required>
 
     <br><br>
 
     <label for="curso">Nome do Curso</label>
     <br>
     <input name="curso" type="text" required>
+    <input name="termino" type="number" required>
 
     <br><br>
 
@@ -26,7 +27,8 @@
     <textarea name="descricao" type="text" placeholder="Escreva Aqui"></textarea>
 
     <br>
-    <button type="subtmit">Cadastrar</button>
+    <input type="hidden" value="1" name="id_usuario">
+    <input type="submit" name="cadastrar" value="Cadastrar" />
 
 </form>
     

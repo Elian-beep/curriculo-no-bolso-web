@@ -7,7 +7,7 @@ if(isset($_POST["cadastrar"])){
 
     $sql = "INSERT INTO usuarios (nome_completo, email, senha) VALUES ('$nome_completo', '$email', '$senha');";
     $result = $conexao->query($sql);
-    header("Location: ");
+    header("Location: ../../telas/cadastro_usuario.php");
 }else{
     header("Location: ");
 }

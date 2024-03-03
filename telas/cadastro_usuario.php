@@ -6,7 +6,7 @@
     <title>Novo usuário</title>
 </head>
 <body>
-<form method="post"action="">
+<form method="post"action="../servicos/usuarios/cadastrar_usuario.php">
     <label for="nome_completo" >Nome Completo</label>
     <br>
     <input name ="nome_completo" type ="text" placeholder="Digite seu Nome" required>
@@ -21,9 +21,9 @@
 
     <label for="senha">Senha</label>
     <br>
-    <input name="senha" type=password placeholder="Digite sua Senha" required>
+    <input name="senha" type="password" placeholder="Digite sua Senha" required>
     <br>
-    <button type="submit">Cadastrar</button>
+    <input type="submit" name="cadastrar" value="Cadastrar" />
 
 
 </form>    
