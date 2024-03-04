@@ -9,9 +9,9 @@ if(isset($_POST["cadastrar"])){
 
     $sql = "INSERT INTO certificacoes (instituicao, curso, termino, descricao, id_usuario) VALUES ('$instituicao', '$curso', '$termino', '$descricao', '$id_usuario');";
     $result = $conexao->query($sql);
-    header("Location: ");
+    header("Location: ../../telas/index_certificacoes.php?id=$id_usuario");
 }else{
-    header("Location: ");
+    header("Location: ../../telas/index_certificacoes.php?id=$id_usuario");
 }
 
 ?>

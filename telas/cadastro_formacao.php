@@ -1,3 +1,9 @@
+<?php
+include_once("../servicos/config.php");
+$sql = "SELECT * FROM tipo_formacao;";
+$result = $conexao->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,6 +35,14 @@
     <input name="termino" type="number" required>
 
     <br><br>
+    <select name="id_tipo" id="id_tipo">
+        <option value="null">Escolha uma das opções</option>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo"<option value='$row[id]'>$row[descricao]</option>";
+        }
+        ?>
+    </select>
 
     <input type="hidden" value="1" name="id_tipo">
     <input type="hidden" value="1" name="id_usuario">

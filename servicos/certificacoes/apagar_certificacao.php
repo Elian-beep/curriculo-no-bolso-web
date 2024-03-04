@@ -2,6 +2,7 @@
 include_once("../config.php");
 if(!empty($_GET["id"])){
     $id = $_GET["id"];
+    $id_usuario = $_GET["id_usuario"];
 
     $sqlSelect = "SELECT * FROM certificacoes WHERE id='$id';";
     $result = $conexao->query($sqlSelect);
@@ -10,9 +11,9 @@ if(!empty($_GET["id"])){
         $sqlDelete = "DELETE FROM certificacoes WHERE id='$id';";
         $resultDelete = $conexao->query($sqlDelete);
     }
-    header("Location: ");
+    header("Location: ../../telas/index_certificacoes.php?id=$id_usuario");
 }else{
-    header("Location: ");
+    header("Location: ../../telas/index_usuarios.php");
 }
 
 ?>

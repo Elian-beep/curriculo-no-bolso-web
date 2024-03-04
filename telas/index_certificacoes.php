@@ -1,7 +1,8 @@
 <?php
 include_once("../servicos/config.php");
 
-$sql = "SELECT * FROM usuarios";
+$id = $_GET['id'];
+$sql = "SELECT * FROM certificacoes WHERE id_usuario = '$id';";
 $result = $conexao->query($sql);
 ?>
 
@@ -10,18 +11,20 @@ $result = $conexao->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>
+    <title>Certificações</title>
 </head>
 <body>
-    <h1>Usuários</h1>
-    <a href="cadastro_usuario.php">Novo usuário</a>
+    <h1>Certificações</h1>
+    <a href="index_usuario.php">Voltar</a>
+    <a href="cadastro_certificacao.php">Nova certificação</a>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NOME COMPLETO</th>
-                <th>E-MAIL</th>
-                <th>CERTIFICAÇÕES</th>
+                <th>INSTITUIÇÃO</th>
+                <th>CURSO</th>
+                <th>TÉRMINO</th>
+                <th>DESCRIÇÃO</th>
                 <th>AÇÕES</th>
             </tr>
         </thead>
@@ -30,12 +33,13 @@ $result = $conexao->query($sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>". $row["id"] ."</td>";
-                echo "<td>". $row["nome_completo"] ."</td>";
-                echo "<td>". $row["email"] ."</td>";
-                echo "<td><a href='index_certificacoes.php?id=$row[id]'>Ver certificações</a></td>";
+                echo "<td>". $row["instituicao"] ."</td>";
+                echo "<td>". $row["curso"] ."</td>";
+                echo "<td>". $row["termino"] ."</td>";
+                echo "<td>". $row["descricao"] ."</td>";
                 echo 
                 "<td>
-                    <a href='../servicos/usuarios/apagar_usuario.php?id=$row[id]'>Excluir</a>
+                    <a href='../servicos/certificacoes/apagar_certificacao.php?id=$row[id]&id_usuario=$row[id_usuario]'>Excluir</a>
                     <a href='#'>Editar</a>
                 </td>";
                 echo "</tr>";

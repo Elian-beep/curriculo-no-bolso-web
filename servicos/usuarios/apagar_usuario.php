@@ -10,9 +10,9 @@ if(!empty($_GET["id"])){
         $sqlDelete = "DELETE FROM usuarios WHERE id='$id';";
         $resultDelete = $conexao->query($sqlDelete);
     }
-    header("Location: ");
+    header("Location: ../../telas/index_usuario.php");
 }else{
-    header("Location: ");
+    header("Location: ../../telas/index_usuario.php");
 }
 
 ?>
