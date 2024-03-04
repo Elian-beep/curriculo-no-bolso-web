@@ -10,9 +10,9 @@ if(isset($_POST["cadastrar"])){
 
     $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa', '$cargo', '$inicio' , '$termino', '$descricao', '$id_usuario');";
     $result = $conexao->query($sql);
-    header("Location: ");
+    header("Location: ../../telas/index_experiencias.php?id=$id_usuario");
 }else{
-    header("Location: ");
+    header("Location: ../../telas/index_experiencias.php?id=$id_usuario");
 }
 
 ?>

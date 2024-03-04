@@ -22,6 +22,8 @@ $result = $conexao->query($sql);
                 <th>NOME COMPLETO</th>
                 <th>E-MAIL</th>
                 <th>CERTIFICAÇÕES</th>
+                <th>EXPERIÊNCIAS</th>
+                <th>FORMAÇÕES</th>
                 <th>AÇÕES</th>
             </tr>
         </thead>
@@ -33,6 +35,8 @@ $result = $conexao->query($sql);
                 echo "<td>". $row["nome_completo"] ."</td>";
                 echo "<td>". $row["email"] ."</td>";
                 echo "<td><a href='index_certificacoes.php?id=$row[id]'>Ver certificações</a></td>";
+                echo "<td><a href='index_experiencias.php?id=$row[id]'>Ver experiências</a></td>";
+                echo "<td><a href='index_formacoes.php?id=$row[id]'>Ver formações</a></td>";
                 echo 
                 "<td>
                     <a href='../servicos/usuarios/apagar_usuario.php?id=$row[id]'>Excluir</a>
