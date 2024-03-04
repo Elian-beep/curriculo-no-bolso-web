@@ -1,5 +1,14 @@
 <?php
+session_start();
 include_once("../servicos/config.php");
+
+if(!isset($_SESSION["email"]) == true && !isset( $_SESSION["senha"]) == true){
+    unset($_SESSION["email"]);
+    unset($_SESSION["senha"]);
+    header("Location: login/login.php");
+}
+
+$logado = $_SESSION["email"];
 
 $sql = "SELECT * FROM usuarios";
 $result = $conexao->query($sql);

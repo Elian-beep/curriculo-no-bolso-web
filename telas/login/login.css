@@ -1,0 +1,87 @@
+.login-container {
+}
+
+/* AREA APENAS PARA O BANNER */
+.login-banner{
+    background: var(--cor-primaria);
+    padding: 16px 32px;
+}
+
+.banner-topo{
+    color: var(--cor-neutraC5);
+    text-align: center;
+}
+
+/* AREA APENAS PARA O LOGIN */
+.login-content {
+    padding: 72px 32px 0 32px;
+    margin-top: 16px;
+}
+
+.login-title {
+    color: var(--cor-neutraE1);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.login-form {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    border-radius: 10px;
+    background: var(--cor-neutraC5);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.login-area-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-neutraE1);
+}
+
+.input-group input {
+    padding: 16px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--cor-neutraE1);
+    background: var(--cor-neutraC5);
+
+    color: var(--cor-neutraE2);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.login-btn {
+    border-radius: 10px;
+    padding: 16px;
+    background: var(--cor-primaria);
+
+    color: var(--cor-neutraC5);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.login-footer {
+    color: var(--cor-neutraE1);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.login-footer a{
+    color: var(--cor-primaria2);
+}
