@@ -67,16 +67,6 @@
     font-weight: 500;
 }
 
-.login-btn {
-    border-radius: 10px;
-    padding: 16px;
-    background: var(--cor-primaria);
-
-    color: var(--cor-neutraC5);
-    font-size: 14px;
-    font-weight: 700;
-}
-
 .login-footer {
     color: var(--cor-neutraE1);
     text-align: center;
@@ -154,14 +144,5 @@
     .login-footer{
         font-size: 14px;
     }
-
-    .login-btn{
-        align-self: center;
-        width: 220px;
-        cursor: pointer;
-    }
-
-
-
 
 }

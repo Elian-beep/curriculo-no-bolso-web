@@ -1,3 +1,18 @@
+<?php
+include("../../servicos/funcoes/usuario.func.php");
+if(isset($_POST["cadastrar"])){
+    try{
+        $nome_completo = $_POST["nome_completo"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $senha_repetida = $_POST["senha_repetida"];
+        CadUsuario($nome_completo, $email, $senha, $senha_repetida);
+    }catch(Exception $e){
+        echo "".$e->getMessage();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../login/login.css">
-    <link rel="stylesheet" href="../cores.css">
+    <link rel="stylesheet" href="../padrao.css">
     <title>Cadastro Usuário</title>
 </head>
 
@@ -24,6 +39,7 @@
                 <h1 class="login-title">Crie uma conta</h1>
             </div>
             <form class="login-form" method="POST" action="../../servicos/usuarios/cadastrar_usuario.php">
+            <!-- <form class="login-form" method="POST"> -->
                 <div class="login-area-inputs">
                     <div class="input-group">
                         <label for="nome_completo">Nome completo</label>
@@ -43,7 +59,7 @@
                     </div>
                 </div>
 
-                <input class="login-btn" type="submit" name="cadastrar" value="Cadastrar">
+                <input class="btn-principal" type="submit" name="cadastrar" value="Cadastrar">
 
                 <span class="login-footer">Já tem uma conta? <a
                         href="../login">Entrar</a></span>

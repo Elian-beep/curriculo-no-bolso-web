@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../cores.css">
+    <link rel="stylesheet" href="../padrao.css">
     <title>Login</title>
 </head>
 
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <input class="login-btn" type="submit" name="logar" value="Entrar">
+                <input class="btn-principal" type="submit" name="logar" value="Entrar">
 
                 <span class="login-footer">Ainda não tem uma conta? <a
                         href="../cadastro_usuario">Cadastrar</a></span>

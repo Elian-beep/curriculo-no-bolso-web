@@ -7,8 +7,17 @@ if(!isset($_SESSION["email"]) && !isset( $_SESSION["senha"])){
     unset($_SESSION["senha"]);
     header("Location: ../login");
 }
-
 $logado = $_SESSION["email"];
+
+$sql_select_usuario = "SELECT id FROM usuarios WHERE email = '$_SESSION[email]' and senha = '$_SESSION[senha]';";
+$result_select_usuario = $conexao->query($sql_select_usuario);
+if($result_select_usuario->num_rows > 0){
+    $row_usuario = $result_select_usuario->fetch_assoc();
+}
+
+
+$sql_select_curr = "SELECT * FROM curriculos WHERE id_usuario = $row_usuario[id];";
+$result_select_curr = $conexao->query($sql_select_curr);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +26,8 @@ $logado = $_SESSION["email"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cabecalho.css">
-    <link rel="stylesheet" href="../cores.css">
+    <link rel="stylesheet" href="corpo.css">
+    <link rel="stylesheet" href="../padrao.css">
     <title>Currículo de Bolso</title>
 </head>
 <body>
@@ -44,7 +54,15 @@ $logado = $_SESSION["email"];
         </nav>
     </header>
 
-    <main>
+    <main class="prin-container">
+        <div class="prin-alerta">
+            <h2>OPS!</h2>
+            <img src="../../imagens/imagem_doc.png" alt="ícone de criação de um novo documento">
+            <p>Parece que ainda não há nenhum currículo criado. Toque no botão “Criar currículo” e crie seu primeiro currículo.</p>
+            <div class="prin-btn">
+                <a href="../login" class="btn-principal btn-a">Criar currículo</a>
+            </div>
+        </div>
     </main>
 
     <script src="menu_mobile.js"></script>
