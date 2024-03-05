@@ -10,6 +10,10 @@
     --cor-neutraC5: #FFFFFF;
 }
 
+body{
+    background: var(--cor-neutraC5);
+}
+
 body, *{
     font-family: Roboto, sans-serif;
     padding: 0px;
