@@ -18,9 +18,9 @@ if(isset($_POST["logar"]) && !empty($_POST['email']) && !empty($_POST['senha']))
     }else{
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header('Location: ../telas/login/login.php');
+        header('Location: ../telas/login');
     }
 }else{
-    header('Location: ../telas/login/login.php');
+    header('Location: ../telas/login');
 }
 ?>

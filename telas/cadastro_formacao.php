@@ -44,7 +44,6 @@ $result = $conexao->query($sql);
         ?>
     </select>
 
-    <input type="hidden" value="1" name="id_tipo">
     <input type="hidden" value="1" name="id_usuario">
     <input type="submit" name="cadastrar" value="Cadastrar" />
 

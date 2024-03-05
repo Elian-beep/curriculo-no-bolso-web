@@ -14,5 +14,4 @@ if(isset($_POST["cadastrar"])){
 }else{
     header("Location: ../../telas/index_formacoes.php?id=$id_usuario");
 }
-
 ?>

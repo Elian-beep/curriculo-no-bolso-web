@@ -11,7 +11,7 @@ if(!empty($_GET["id"])){
         $sqlDelete = "DELETE FROM premiacoes WHERE id='$id';";
         $resultDelete = $conexao->query($sqlDelete);
     }
-    header("Location: ../../telas/index_premiacao.php?id=$id_usuario");
+    header("Location: ../../telas/index_premiacoes.php?id=$id_usuario");
 }else{
     header("Location: ../../telas/index_usuarios.php");
 }

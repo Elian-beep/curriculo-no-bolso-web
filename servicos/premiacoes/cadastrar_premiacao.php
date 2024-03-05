@@ -7,7 +7,7 @@ if(isset($_POST["cadastrar"])){
     $descricao =$_POST["descricao"];
     $id_usuario = $_POST["id_usuario"];
 
-    $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', '$ano_premiacao', '$descricao', '$id_usuario');";
+    $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', $ano_premiacao, '$descricao', '$id_usuario');";
     $result = $conexao->query($sql);
     header("Location: ../../telas/index_premiacoes.php?id=$id_usuario");
 }else{
