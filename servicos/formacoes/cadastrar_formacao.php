@@ -10,8 +10,8 @@ if(isset($_POST["cadastrar"])){
 
     $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao', '$curso', '$inicio' , '$termino', '$id_tipo', '$id_usuario');";
     $result = $conexao->query($sql);
-    header("Location: ../../telas/index_formacoes.php?id=$id_usuario");
+    // header("Location: ../../telas/index_formacoes.php?id=$id_usuario");
 }else{
-    header("Location: ../../telas/index_formacoes.php?id=$id_usuario");
+    // header("Location: ../../telas/index_formacoes.php?id=$id_usuario");
 }
 ?>

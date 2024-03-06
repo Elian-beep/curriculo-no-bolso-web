@@ -1,0 +1,51 @@
+.curr-titulo {
+    color: var(--cor-primaria);
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.curr-tabela{
+    margin-top: 51px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.curr-linha .th-direita{
+    text-align: right;
+}
+
+.curr-linha th{
+    text-align: left;
+}
+
+.curr-linha td{
+    border-bottom: 0.5px solid var(--cor-neutraE2);
+    padding: 8px 4px;
+    font-weight: 500;
+}
+
+.curr-icons{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.curr-icons a{
+    text-decoration: none;
+}
+
+@media screen and (min-width: 796px){
+    .curr-titulo{
+        font-size: 28px;
+    }
+
+    .curr-tabela{
+        margin-top: 60px;
+        font-size: 16px;
+    }
+
+    .curr-linha{
+        padding: 8px 16px;
+    }
+}
