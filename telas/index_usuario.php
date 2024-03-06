@@ -35,6 +35,7 @@ $result = $conexao->query($sql);
                 <th>EXPERIÊNCIAS</th>
                 <th>FORMAÇÕES</th>
                 <th>PREMIAÇÕES</th>
+                <th>CURRICULOS</th>
                 <th>AÇÕES</th>
             </tr>
         </thead>
@@ -49,6 +50,7 @@ $result = $conexao->query($sql);
                 echo "<td><a href='index_experiencias.php?id=$row[id]'>Ver experiências</a></td>";
                 echo "<td><a href='index_formacoes.php?id=$row[id]'>Ver formações</a></td>";
                 echo "<td><a href='index_premiacoes.php?id=$row[id]'>Ver premiações</a></td>";
+                echo "<td><a href='index_curriculos.php?id=$row[id]'>Ver curriculos</a></td>";
                 echo 
                 "<td>
                     <a href='../servicos/usuarios/apagar_usuario.php?id=$row[id]'>Excluir</a>

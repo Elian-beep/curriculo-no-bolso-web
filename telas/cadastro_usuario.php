@@ -24,6 +24,7 @@
         <label for="senha">Senha</label>
         <br>
         <input name="senha" type="password" placeholder="Digite sua Senha" required>
+        <input name="senha_repetida" type="password" placeholder="Digite sua Senha" required>
         <br>
         <input type="submit" name="cadastrar" value="Cadastrar" />
 
