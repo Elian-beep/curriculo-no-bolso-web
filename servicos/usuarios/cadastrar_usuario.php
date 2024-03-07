@@ -14,10 +14,10 @@ if(isset($_POST["cadastrar"])){
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header("Location: ../../telas/index_usuario.php");
+        header("Location: ../../telas/principal");
     }
 }else{
-    header("Location: ../../telas/index_usuario.php");
+    header("Location: ../../telas/principal");
 }
 
 ?>

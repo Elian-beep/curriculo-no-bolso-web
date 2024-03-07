@@ -1,5 +1,5 @@
 <?php
-function cadastrar1_curriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario){
+function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario){
     include_once("../config.php");
     if(isset($_POST["cadastrar"])){
         $titulo_curriculo = $_POST[$titulo];
@@ -24,7 +24,7 @@ function cadastrar1_curriculo($titulo, $numero_celular, $link_linkedin, $link_po
     }
 }
 
-function cadastrar1_experiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){
+function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){
     include_once("../config.php");
     if(isset($_POST["cadastrar"])){
         $empresa_experiencia = $_POST[$empresa];
@@ -48,7 +48,7 @@ function cadastrar1_experiencia($empresa, $cargo, $inicio, $termino, $descricao,
     }
 }
 
-function cadastrar1_certificacao($instituicao, $curso, $termino, $descricao, $id_usuario){
+function CadastrarCertificacao($instituicao, $curso, $termino, $descricao, $id_usuario){
     include_once("../config.php");
     if(isset($_POST["cadastrar"])){
         $instituicao_certificacao = $_POST[$instituicao];
@@ -71,7 +71,7 @@ function cadastrar1_certificacao($instituicao, $curso, $termino, $descricao, $id
     }
 }
 
-function cadastrar1_formacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario){
+function CadastrarFormacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario){
     include_once("../config.php");
     if(isset($_POST["cadastrar"])){
         $instituicao_formacao = $_POST[$instituicao];
@@ -95,7 +95,7 @@ function cadastrar1_formacao($instituicao, $curso, $inicio, $termino, $id_tipo, 
     }
 }
 
-function cadastrar1_premiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario){
+function CadastrarPremiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario){
     include_once("../config.php");
     if(isset($_POST["cadastrar"])){
         $instituicao_premiacao = $_POST[$instituicao];
