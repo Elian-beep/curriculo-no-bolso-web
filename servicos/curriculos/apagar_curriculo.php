@@ -11,9 +11,9 @@ if(!empty($_GET["id"])){
         $sqlDelete = "DELETE FROM curriculos WHERE id='$id';";
         $resultDelete = $conexao->query($sqlDelete);
     }
-    header("Location: ../../telas/index_curriculos.php?id=$id_usuario");
+    header("Location: ../../telas/principal");
 }else{
-    header("Location: ../../telas/index_usuarios.php");
+    header("Location: ../../telas/principal");
 }
 
 ?>
