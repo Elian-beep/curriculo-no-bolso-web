@@ -1,0 +1,98 @@
+<?php
+function cadastrar1_curriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario){
+    include_once("../config.php");
+    if(isset($_POST["cadastrar"])){
+        $titulo_curriculo = $_POST[$titulo];
+        $numero_celular_curriculo = $_POST[$numero_celular];
+        $link_linkedin_curriculo = $_POST[$link_linkedin];
+        $link_portfolio_curriculo = $_POST[$link_portfolio];
+        $resumo_profissional_curriculo = $_POST[$resumo_profissional];
+        $id_usuario_curriculo = $_POST[$id_usuario];
+        
+        $sql = "INSERT INTO curriculos (titulo, numero_celular, link_linkedin, link_portfolio, resumo_profissional, id_usuario) VALUES ('$titulo_curriculo', '$numero_celular_curriculo', '$link_linkedin_curriculo', '$link_portfolio_curriculo', '$resumo_profissional_curriculo', '$id_usuario_curriculo');";
+        $result = $conexao->query($sql);
+        return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
+    }else{
+        return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
+    }
+}
+
+function cadastrar1_experiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){
+    include_once("../config.php");
+    if(isset($_POST["cadastrar"])){
+        $empresa_experiencia = $_POST[$empresa];
+        $cargo_experiencia = $_POST[$cargo];
+        $inicio_experiencia = $_POST[$inicio];
+        $termino_experiencia = $_POST[$termino];
+        $descricao_experiencia =$_POST[$descricao];
+        $id_usuario_experiencia = $_POST[$id_usuario];
+
+        $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa_experiencia', '$cargo_experiencia', '$inicio_experiencia' , '$termino_experiencia', '$descricao_experiencia', '$id_usuario_experiencia');";
+        $result = $conexao->query($sql);
+        header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
+    }else{
+        header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
+    }
+}
+
+function cadastrar1_certificacao($instituicao, $curso, $termino, $descricao, $id_usuario){
+    include_once("../config.php");
+    if(isset($_POST["cadastrar"])){
+        $instituicao_certificacao = $_POST[$instituicao];
+        $curso_certificacao = $_POST[$curso];
+        $termino_certificacao = $_POST[$termino];
+        $descricao_certificacao = $_POST[$descricao];
+        $id_usuario_certificacao = $_POST[$id_usuario];
+
+        $sql = "INSERT INTO certificacoes (instituicao, curso, termino, descricao, id_usuario) VALUES ('$instituicao_certificacao', '$curso_certificacao', '$termino_certificacao', '$descricao_certificacao', '$id_usuario_certificacao');";
+        $result = $conexao->query($sql);
+        header("Location: ../../telas/index_certificacoes.php?id=$id_usuario_certificacao");
+    }else{
+        header("Location: ../../telas/index_certificacoes.php?id=$id_usuario_certificacao");
+    }
+}
+
+function cadastrar1_formacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario){
+    include_once("../config.php");
+    if(isset($_POST["cadastrar"])){
+        $instituicao_formacao = $_POST[$instituicao];
+        $curso_formacao = $_POST[$curso];
+        $inicio_formacao = $_POST[$inicio];
+        $termino_formacao = $_POST[$termino];
+        $id_tipo_formacao =$_POST[$id_tipo];
+        $id_usuario_formacao = $_POST[$id_usuario];
+    
+        $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao_formacao', '$curso_formacao', '$inicio_formacao' , '$termino_formacao', '$id_tipo_formacao', '$id_usuario_formacao');";
+        $result = $conexao->query($sql);
+        header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
+    }else{
+        header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
+    }
+}
+
+function cadastrar1_premiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario){
+    include_once("../config.php");
+    if(isset($_POST["cadastrar"])){
+        $instituicao_premiacao = $_POST[$instituicao];
+        $curso_formacao_premiacao = $_POST[$premiacao];
+        $inicio_formacao_premiacao = $_POST[$ano_premiacao];
+        $termino_formacao_premiacao = $_POST[$descricao];
+        $id_usuario_formacao_premiacao = $_POST[$id_usuario];
+    
+        $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', $ano_premiacao, '$descricao', '$id_usuario');";
+        $result = $conexao->query($sql);
+        header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
+    }else{
+        header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
+    }
+}
+
+function retornar_id() {
+    include_once("../config.php");
+        $sql = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
+        $result = $conexao->query($sql);
+        $curriculo = mysqli_fetch_assoc($result);
+    return $curriculo["id"];
+}
+
+?>

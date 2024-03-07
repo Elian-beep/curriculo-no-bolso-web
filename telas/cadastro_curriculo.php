@@ -6,7 +6,7 @@
     <title>Cadastrar Curriculo</title>
 </head>
 <body>
-<form method="post" action="../servicos/curriculos/cadastrar_curriculo.php" >
+<form method="post" action="../servicos/gerenciamento/gerenciar_cadastro.php" >
     <label for="titulo">Titulo</label>
     <br>
     <input name="titulo" type="text" required>

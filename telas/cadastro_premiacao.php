@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form method="post" action="../servicos/premiacoes/cadastrar_premiacao.php">
+    <form method="post" action="../servicos/gerenciamento/gerenciar_cadastro.php">
         <label for="instituicao" >Nome da Instituicao</label>
         <br>
         <input name="instituicao" type="text" required>
