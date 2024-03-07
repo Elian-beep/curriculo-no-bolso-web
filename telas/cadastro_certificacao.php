@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form method="post" action="../servicos/certificacoes/cadastrar_certificacao.php">
+<form method="post" action="../servicos/gerenciamento/gerenciar_cadastro.php">
 
     <label for="instituicao">Nome da instituicao</label>
     <br>

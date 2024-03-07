@@ -6,7 +6,7 @@
     <title>Cadastrar Experiencia</title>
 </head>
 <body>
-<form method="post" action="../servicos/experiencias/cadastrar_experiencia.php">
+<form method="post" action="../servicos/gerenciamento/gerenciar_cadastro.php">
     <label for="empresa" >Nome da Empresa</label>
     <br>
     <input name="empresa" type="text" required>
