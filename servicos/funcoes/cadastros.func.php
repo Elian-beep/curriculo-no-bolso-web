@@ -1,27 +1,13 @@
 <?php
-function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario){
-    include_once("../config.php");
-    if(isset($_POST["cadastrar"])){
-        $titulo_curriculo = $_POST[$titulo];
-        $numero_celular_curriculo = $_POST[$numero_celular];
-        $link_linkedin_curriculo = $_POST[$link_linkedin];
-        $link_portfolio_curriculo = $_POST[$link_portfolio];
-        $resumo_profissional_curriculo = $_POST[$resumo_profissional];
-        $id_usuario_curriculo = $_POST[$id_usuario];
-        
-        $sql = "INSERT INTO curriculos (titulo, numero_celular, link_linkedin, link_portfolio, resumo_profissional, id_usuario) VALUES ('$titulo_curriculo', '$numero_celular_curriculo', '$link_linkedin_curriculo', '$link_portfolio_curriculo', '$resumo_profissional_curriculo', '$id_usuario_curriculo');";
-        $result = $conexao->query($sql);
+function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario, $conexao){
+    $sql = "INSERT INTO curriculos (titulo, numero_celular, link_linkedin, link_portfolio, resumo_profissional, id_usuario) VALUES ('$titulo', '$numero_celular', '$link_linkedin', '$link_portfolio', '$resumo_profissional', '$id_usuario');";
+    $conexao->query($sql);
 
-        $sql_novo = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
-        $result_novo = $conexao->query($sql_novo);
-        $curriculos_id_trago = mysqli_fetch_assoc($result_novo);
-        $curriculos_id_trago["id"];
-        
-
-        return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
-    }else{
-        return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
-    }
+    $sql_novo = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
+    $result_novo = $conexao->query($sql_novo);
+    $curriculos_id_trago = mysqli_fetch_assoc($result_novo);
+    $curriculos_id_trago["id"];
+    header("Location: ../../principal");
 }
 
 function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){

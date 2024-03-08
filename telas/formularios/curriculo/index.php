@@ -7,7 +7,19 @@ if (!isset($_SESSION["email"]) && !isset($_SESSION["senha"])) {
     unset($_SESSION["senha"]);
     header("Location: ../../login");
 }
+$id_usuario = $_GET['id'];
 $logado = $_SESSION["email"];
+
+if (isset($_POST["cadastrar"])) {
+    include "../../../servicos/funcoes/cadastros.func.php";
+    $titulo = $_POST["titulo"];
+    $numero_celular = $_POST["numero_celular"];
+    $link_linkedin = $_POST["link_linkedin"];
+    $link_portfolio = $_POST["link_portfolio"];
+    $resumo_profissional = $_POST["resumo_profissional"];
+    $id_usuario = $_POST["id_usuario"];
+    echo CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario, $conexao);
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +59,18 @@ $logado = $_SESSION["email"];
     </header>
 
     <main>
-        <form action="">
+        <form action="" method="POST">
             <div>
                 <span>Título do currículo</span>
+                <?php echo $id_usuario ?>
+                <input type="text" placeholder="titulo" name="titulo">
+                <input type="text" placeholder="numero_celular" name="numero_celular">
+                <input type="text" placeholder="link_linkedin" name="link_linkedin">
+                <input type="text" placeholder="link_portfolio" name="link_portfolio">
+                <textarea placeholder="resumo_profissional" name="resumo_profissional" id="" cols="30"
+                    rows="10"></textarea>
+                <input type="hidden" value="<?php echo $id_usuario ?>" name="id_usuario">
+                <input type="submit" name="cadastrar">
             </div>
         </form>
     </main>

@@ -11,13 +11,17 @@ $logado = $_SESSION["email"];
 
 $sql_select_usuario = "SELECT id FROM usuarios WHERE email = '$_SESSION[email]' and senha = '$_SESSION[senha]';";
 $result_select_usuario = $conexao->query($sql_select_usuario);
+
 if ($result_select_usuario->num_rows > 0) {
     $row_usuario = $result_select_usuario->fetch_assoc();
+    $sql_select_curr = "SELECT * FROM curriculos WHERE id_usuario = $row_usuario[id];";
+    $result_select_curr = $conexao->query($sql_select_curr);
+} else {
+    unset($_SESSION["email"]);
+    unset($_SESSION["senha"]);
+    header("Location: ../login");
 }
 
-
-$sql_select_curr = "SELECT * FROM curriculos WHERE id_usuario = $row_usuario[id];";
-$result_select_curr = $conexao->query($sql_select_curr);
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +47,9 @@ $result_select_curr = $conexao->query($sql_select_curr);
                     <img src="../../imagens/icon-lista.svg" alt="ícone de menu sanduíche">
                 </button>
                 <ul id="nav-list-mobile" class="nav-list-mobile">
-                    <li class="nav-item-mobile border-bottom"><a href="../formularios/curriculo/index.php">Criar currículo</a></li>
+                    <li class="nav-item-mobile border-bottom"><a
+                            href="../formularios/curriculo/index.php?id=<?php echo $row_usuario['id'] ?>">Criar
+                            currículo</a></li>
                     <li class="nav-item-mobile border-bottom"><a href="#">Lsta de currículos</a>
                     </li>
                     <li class="nav-item-mobile border-bottom"><a href="#">Minha conta</a></li>
@@ -51,7 +57,9 @@ $result_select_curr = $conexao->query($sql_select_curr);
                 </ul>
             </div>
             <ul class="nav-laptop">
-                <li class="nav-item-laptop"><a href="../formularios/curriculo/index.php">Criar Currículo</a></li>
+                <li class="nav-item-laptop"><a
+                        href="../formularios/curriculo/index.php?id=<?php echo $row_usuario['id'] ?>">Criar
+                        Currículo</a></li>
                 <li class="nav-item-laptop"><a href="#">Lista de currículos</a></li>
                 <li class="nav-item-laptop"><a href="">Minha conta</a></li>
                 <li class="nav-item-laptop"><a href="../../servicos/sair.php">Sair</a></li>

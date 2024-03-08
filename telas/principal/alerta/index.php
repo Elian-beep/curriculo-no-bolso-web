@@ -4,6 +4,6 @@
     <p>Parece que ainda não há nenhum currículo criado. Toque no botão “Criar currículo” e crie seu primeiro currículo.
     </p>
     <div class="prin-btn">
-        <a href="../formularios/curriculo/index.php" class="btn-principal btn-a">Criar currículo</a>
+        <a href="../formularios/curriculo/index.php?id=<?php echo $row_usuario['id'] ?>" class="btn-principal btn-a">Criar currículo</a>
     </div>
 </div>
