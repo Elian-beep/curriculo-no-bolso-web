@@ -11,6 +11,13 @@ function cadastrar1_curriculo($titulo, $numero_celular, $link_linkedin, $link_po
         
         $sql = "INSERT INTO curriculos (titulo, numero_celular, link_linkedin, link_portfolio, resumo_profissional, id_usuario) VALUES ('$titulo_curriculo', '$numero_celular_curriculo', '$link_linkedin_curriculo', '$link_portfolio_curriculo', '$resumo_profissional_curriculo', '$id_usuario_curriculo');";
         $result = $conexao->query($sql);
+
+        $sql_novo = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
+        $result_novo = $conexao->query($sql_novo);
+        $curriculos_id_trago = mysqli_fetch_assoc($result_novo);
+        $curriculos_id_trago["id"];
+        
+
         return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
     }else{
         return header("Location: ../../telas/index_curriculos.php?id=$id_usuario_curriculo");
@@ -29,6 +36,12 @@ function cadastrar1_experiencia($empresa, $cargo, $inicio, $termino, $descricao,
 
         $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa_experiencia', '$cargo_experiencia', '$inicio_experiencia' , '$termino_experiencia', '$descricao_experiencia', '$id_usuario_experiencia');";
         $result = $conexao->query($sql);
+
+        $sql_novo = "SELECT id FROM experiencias ORDER BY id DESC LIMIT 1";
+        $result_novo = $conexao->query($sql_novo);
+        $experiencias_id_trago = mysqli_fetch_assoc($result_novo);
+        $experiencias_id_trago["id"];
+
         header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
     }else{
         header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
@@ -46,6 +59,12 @@ function cadastrar1_certificacao($instituicao, $curso, $termino, $descricao, $id
 
         $sql = "INSERT INTO certificacoes (instituicao, curso, termino, descricao, id_usuario) VALUES ('$instituicao_certificacao', '$curso_certificacao', '$termino_certificacao', '$descricao_certificacao', '$id_usuario_certificacao');";
         $result = $conexao->query($sql);
+
+        $sql_novo = "SELECT id FROM certificacoes ORDER BY id DESC LIMIT 1";
+        $result_novo = $conexao->query($sql_novo);
+        $certificacoes_id_trago = mysqli_fetch_assoc($result_novo);
+        $certificacoes_id_trago["id"];
+
         header("Location: ../../telas/index_certificacoes.php?id=$id_usuario_certificacao");
     }else{
         header("Location: ../../telas/index_certificacoes.php?id=$id_usuario_certificacao");
@@ -64,6 +83,12 @@ function cadastrar1_formacao($instituicao, $curso, $inicio, $termino, $id_tipo, 
     
         $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao_formacao', '$curso_formacao', '$inicio_formacao' , '$termino_formacao', '$id_tipo_formacao', '$id_usuario_formacao');";
         $result = $conexao->query($sql);
+
+        $sql_novo = "SELECT id FROM formacoes ORDER BY id DESC LIMIT 1";
+        $result_novo = $conexao->query($sql_novo);
+        $formacao_id_trago = mysqli_fetch_assoc($result_novo);
+        $formacao_id_trago["id"];
+
         header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
     }else{
         header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
@@ -81,18 +106,16 @@ function cadastrar1_premiacao($instituicao, $premiacao, $ano_premiacao, $descric
     
         $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', $ano_premiacao, '$descricao', '$id_usuario');";
         $result = $conexao->query($sql);
+
+        $sql_novo = "SELECT id FROM premiacoes ORDER BY id DESC LIMIT 1";
+        $result_novo = $conexao->query($sql_novo);
+        $premiacao_id_trago = mysqli_fetch_assoc($result_novo);
+        $premiacao_id_trago["id"];
+
         header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
     }else{
         header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
     }
-}
-
-function retornar_id() {
-    include_once("../config.php");
-        $sql = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
-        $result = $conexao->query($sql);
-        $curriculo = mysqli_fetch_assoc($result);
-    return $curriculo["id"];
 }
 
 ?>
