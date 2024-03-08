@@ -2,12 +2,11 @@
 function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_portfolio, $resumo_profissional, $id_usuario, $conexao){
     $sql = "INSERT INTO curriculos (titulo, numero_celular, link_linkedin, link_portfolio, resumo_profissional, id_usuario) VALUES ('$titulo', '$numero_celular', '$link_linkedin', '$link_portfolio', '$resumo_profissional', '$id_usuario');";
     $conexao->query($sql);
-
     $sql_novo = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
-    $result_novo = $conexao->query($sql_novo);
-    $curriculos_id_trago = mysqli_fetch_assoc($result_novo);
-    $curriculos_id_trago["id"];
-    header("Location: ../../principal");
+    $result = $conexao->query($sql_novo);
+    $curriculos_id = mysqli_fetch_assoc($result);
+    $id_curr = $curriculos_id["id"];
+    header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
 }
 
 function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){

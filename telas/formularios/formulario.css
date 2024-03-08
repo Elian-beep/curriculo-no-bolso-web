@@ -1,0 +1,52 @@
+.formcurr {
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.formcurr-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formcurr-titulo {
+    color: var(--cor-neutraE1);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--cor-neutraE2);
+}
+
+.formcurr-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.formcurr-label-padrao {
+    color: var(--cor-neutraE1);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.formcurr-label-padrao span {
+    color: var(--cor-erro1);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.formcurr-input-padrao {
+    border-radius: 10px;
+    border: 1px solid var(--cor-neutraE2);
+    padding: 8px 12px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--cor-neutraE1);
+}
+
+.form-duo-buttons{
+    display: flex;
+    gap: 16px;
+}
