@@ -11,17 +11,14 @@ $id_usuario = $_GET['id_usuario'];
 $id_curr = $_GET['id_curr'];
 $logado = $_SESSION["email"];
 
-$sql_tipo_formacao = "SELECT * FROM tipo_formacao;";
-$result_tipo_formacao = $conexao->query($sql_tipo_formacao);
-
 if (isset($_POST["adicionar"])) {
     include "../../../servicos/funcoes/cadastros.func.php";
-    $instituicao = $_POST["instituicao"];
-    $id_tipo = $_POST["id_tipo"];
-    $curso = $_POST["curso"];
+    $empresa = $_POST["empresa"];
+    $cargo = $_POST["cargo"];
     $inicio = $_POST["inicio"];
     $termino = $_POST["termino"];
-    echo CadastrarFormacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario, $id_curr, $conexao);
+    $descricao = $_POST["descricao"];
+    echo CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario, $id_curr, $conexao);
 }
 
 ?>
@@ -36,7 +33,7 @@ if (isset($_POST["adicionar"])) {
     <link rel="stylesheet" href="../../cabecalho/cabecalho.css">
     <link rel="stylesheet" href="../../padrao.css">
     <link rel="stylesheet" href="../formulario.css">
-    <title>Formação Acadêmica</title>
+    <title>Experiência Profissional</title>
 </head>
 
 <body>
@@ -68,27 +65,16 @@ if (isset($_POST["adicionar"])) {
         <form class="formcurr" action="" method="POST">
             <input type="hidden" value="<?php echo $id_usuario ?>" name="id_usuario">
             <input type="hidden" value="<?php echo $id_curr ?>" name="id_curr">
-            <span class="formcurr-titulo">Adicionar Formação Acadêmica?</span>
+            <span class="formcurr-titulo">Adicionar Experiência Profissional?</span>
             <div class="formcurr-container">
                 <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="instituicao">Instituição <span>(obrigatório)</span></label>
-                    <input class="formcurr-input-padrao" id="instituicao" required type="text"
-                        placeholder="Nome da instituição" name="instituicao">
+                    <label class="formcurr-label-padrao" for="empresa">Empresa <span>(obrigatório)</span></label>
+                    <input class="formcurr-input-padrao" id="empresa" required type="text"
+                        placeholder="Nome da instituição" name="empresa">
                 </div>
                 <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="id_tipo">Tipo de formação</label>
-                    <select class="formcurr-input-padrao" name="id_tipo" id="id_tipo">
-                        <option value="">Selecione o tipo</option>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result_tipo_formacao)) {
-                            echo "<option value='$row[id]'>$row[descricao]</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="curso">Curso (Apenas pra graduação ou técnico)</label>
-                    <input class="formcurr-input-padrao" id="curso" type="text" name="curso">
+                    <label class="formcurr-label-padrao" for="cargo">Cargo</label>
+                    <input class="formcurr-input-padrao" id="cargo" type="text" name="cargo">
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
@@ -98,10 +84,17 @@ if (isset($_POST["adicionar"])) {
                     <label class="formcurr-label-padrao" for="termino">Ano de término</label>
                     <input class="formcurr-input-padrao" id="termino" type="number" name="termino">
                 </div>
+                <div class="formcurr-group">
+                    <label for="descricao" class="formcurr-label-padrao" id="descricao">Descrição das atividades</label>
+                    <textarea placeholder="Digite sua descrição" class="formcurr-input-padrao" name="descricao" id=""
+                        cols="30" rows="10"></textarea>
+                </div>
             </div>
             <input class="btn-principal" type="submit" value="Salvar" name="adicionar">
             <div class="form-duo-buttons">
-                <a class="btn-principal btn-a" href="../../formularios/experiencias/index.php?id_usuario=<?php echo $id_usuario ?>&id_curr=<?php echo $id_curr ?>" name="finalizar">Pular</a>
+                <a class="btn-principal btn-a"
+                    href="../../formularios/certificacoes/index.php?id_usuario=<?php echo $id_usuario ?>&id_curr=<?php echo $id_curr ?>"
+                    name="finalizar">Pular</a>
                 <a class="btn-principal btn-a" href="../../principal/index.php" name="finalizar">Finalizar currículo</a>
             </div>
         </form>

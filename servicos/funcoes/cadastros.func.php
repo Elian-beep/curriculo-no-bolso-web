@@ -4,49 +4,38 @@ function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_port
     $conexao->query($sql);
     $sql_novo = "SELECT id FROM curriculos ORDER BY id DESC LIMIT 1";
     $result = $conexao->query($sql_novo);
-    $curriculos_id = mysqli_fetch_assoc($result);
-    $id_curr = $curriculos_id["id"];
+    $curriculos = mysqli_fetch_assoc($result);
+    $id_curr = $curriculos["id"];
     header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
 }
 
 function CadastrarFormacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario, $id_curr, $conexao){
-    // include_once("../config.php");
-    // if(isset($_POST["cadastrar"])){
-    //     $instituicao_formacao = $_POST[$instituicao];
-    //     $curso_formacao = $_POST[$curso];
-    //     $inicio_formacao = $_POST[$inicio];
-    //     $termino_formacao = $_POST[$termino];
-    //     $id_tipo_formacao =$_POST[$id_tipo];
-    //     $id_usuario_formacao = $_POST[$id_usuario];
-// }
         $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao', '$curso', '$inicio' , '$termino', '$id_tipo', '$id_usuario');";
         $conexao->query($sql);
         $sql_novo = "SELECT id FROM formacoes ORDER BY id DESC LIMIT 1";
         $result = $conexao->query($sql_novo);
-        $formacao_id = mysqli_fetch_assoc($result);
-        $id_curr =$formacao_id["id"];
-        // header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
+        $formacao = mysqli_fetch_assoc($result);
+        $id_formacao = $formacao["id"];
+        
+        $sql_relacao = "INSERT INTO curriculos_formacoes (id_curriculos, id_formacoes) VALUES ('$id_curr', '$id_formacao');";
+        $conexao->query($sql_relacao);
+
+        header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
 }
-function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){
-    include_once("../config.php");
-    // if(isset($_POST["cadastrar"])){
-    //     $empresa_experiencia = $_POST[$empresa];
-    //     $cargo_experiencia = $_POST[$cargo];
-    //     $inicio_experiencia = $_POST[$inicio];
-    //     $termino_experiencia = $_POST[$termino];
-    //     $descricao_experiencia =$_POST[$descricao];
-    //     $id_usuario_experiencia = $_POST[$id_usuario];
-    // }
+function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario, $id_curr, $conexao){
     
-        $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa_experiencia', '$cargo_experiencia', '$inicio_experiencia' , '$termino_experiencia', '$descricao_experiencia', '$id_usuario_experiencia');";
+        $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa', '$cargo', '$inicio' , '$termino', '$descricao', '$id_usuario');";
         $result = $conexao->query($sql);
         
         $sql_novo = "SELECT id FROM experiencias ORDER BY id DESC LIMIT 1";
-        $result_novo = $conexao->query($sql_novo);
-        $experiencias_id_trago = mysqli_fetch_assoc($result_novo);
-        $experiencias_id_trago["id"];
+        $result = $conexao->query($sql_novo);
+        $experiencia = mysqli_fetch_assoc($result);
+        $id_experiencia = $experiencia["id"];
+
+        $sql_relacao = "INSERT INTO curriculos_experiencias (id_curriculos, id_experiencias) VALUES ('$id_curr', '$id_experiencia');";
+        $conexao->query($sql_relacao);
         
-        header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
+        header("Location: ../../formularios/experiencias/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
     }
 
 function CadastrarCertificacao($instituicao, $curso, $termino, $descricao, $id_usuario){

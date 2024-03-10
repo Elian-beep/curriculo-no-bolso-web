@@ -18,7 +18,7 @@ function CadUsuario($nome_completo, $email, $senha, $senha_repetida){
         
         // Se o email já estiver cadastrado, apresentar mensagem e abortar
         if ($row['email'] > 0) {
-            header("Location:../../telas/login");
+            header("Location:../../telas/cadastro_usuario");
             echo "email repetido";
         }else{
             $sql = "INSERT INTO usuarios (nome_completo, email, senha) VALUES ('$nome_completo', '$email', '$senha');";
