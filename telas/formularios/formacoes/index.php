@@ -92,11 +92,11 @@ if (isset($_POST["adicionar"])) {
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
-                    <input class="formcurr-input-padrao" id="inicio" type="number" name="inicio">
+                    <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="termino">Ano de término</label>
-                    <input class="formcurr-input-padrao" id="termino" type="number" name="termino">
+                    <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
                 </div>
             </div>
             <input class="btn-principal" type="submit" value="Salvar" name="adicionar">

@@ -70,7 +70,7 @@ if (isset($_POST["adicionar"])) {
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="empresa">Empresa <span>(obrigatório)</span></label>
                     <input class="formcurr-input-padrao" id="empresa" required type="text"
-                        placeholder="Nome da instituição" name="empresa">
+                        placeholder="Nome da empresa" name="empresa">
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="cargo">Cargo</label>
@@ -78,11 +78,11 @@ if (isset($_POST["adicionar"])) {
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
-                    <input class="formcurr-input-padrao" id="inicio" type="number" name="inicio">
+                    <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
                 </div>
                 <div class="formcurr-group">
                     <label class="formcurr-label-padrao" for="termino">Ano de término</label>
-                    <input class="formcurr-input-padrao" id="termino" type="number" name="termino">
+                    <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
                 </div>
                 <div class="formcurr-group">
                     <label for="descricao" class="formcurr-label-padrao" id="descricao">Descrição das atividades</label>
