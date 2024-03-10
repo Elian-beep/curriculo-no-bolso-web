@@ -58,28 +58,21 @@ function CadastrarCertificacao($instituicao, $curso, $termino, $descricao, $id_u
 }
 
 
-function CadastrarPremiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario)
+function CadastrarPremiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario, $id_curr, $conexao)
 {
-    include_once("../config.php");
-    if (isset($_POST["cadastrar"])) {
-        $instituicao_premiacao = $_POST[$instituicao];
-        $curso_formacao_premiacao = $_POST[$premiacao];
-        $inicio_formacao_premiacao = $_POST[$ano_premiacao];
-        $termino_formacao_premiacao = $_POST[$descricao];
-        $id_usuario_formacao_premiacao = $_POST[$id_usuario];
 
-        $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', $ano_premiacao, '$descricao', '$id_usuario');";
-        $result = $conexao->query($sql);
+    $sql = "INSERT INTO premiacoes (instituicao, premiacao, ano_premiacao , descricao, id_usuario) VALUES ('$instituicao', '$premiacao', $ano_premiacao, '$descricao', '$id_usuario');";
+    $conexao->query($sql);
 
-        $sql_novo = "SELECT id FROM premiacoes ORDER BY id DESC LIMIT 1";
-        $result_novo = $conexao->query($sql_novo);
-        $premiacao_id_trago = mysqli_fetch_assoc($result_novo);
-        $premiacao_id_trago["id"];
+    $sql_novo = "SELECT id FROM premiacoes ORDER BY id DESC LIMIT 1";
+    $result = $conexao->query($sql_novo);
+    $premiacao = mysqli_fetch_assoc($result);
+    $id_premiacao = $premiacao["id"];
 
-        header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
-    } else {
-        header("Location: ../../telas/index_premiacoes.php?id=$id_usuario_premiacao");
-    }
+    $sql_relacao = "INSERT INTO curriculos_premiacoes (id_curriculos, id_premiacoes) VALUES ('$id_curr', '$id_premiacao');";
+    $conexao->query($sql_relacao);
+
+    header("Location: ../../formularios/premiacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
 }
 
 ?>
