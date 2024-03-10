@@ -9,29 +9,45 @@ function CadastrarCurriculo($titulo, $numero_celular, $link_linkedin, $link_port
     header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
 }
 
+function CadastrarFormacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario, $id_curr, $conexao){
+    // include_once("../config.php");
+    // if(isset($_POST["cadastrar"])){
+    //     $instituicao_formacao = $_POST[$instituicao];
+    //     $curso_formacao = $_POST[$curso];
+    //     $inicio_formacao = $_POST[$inicio];
+    //     $termino_formacao = $_POST[$termino];
+    //     $id_tipo_formacao =$_POST[$id_tipo];
+    //     $id_usuario_formacao = $_POST[$id_usuario];
+// }
+        $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao', '$curso', '$inicio' , '$termino', '$id_tipo', '$id_usuario');";
+        $conexao->query($sql);
+        $sql_novo = "SELECT id FROM formacoes ORDER BY id DESC LIMIT 1";
+        $result = $conexao->query($sql_novo);
+        $formacao_id = mysqli_fetch_assoc($result);
+        $id_curr =$formacao_id["id"];
+        // header("Location: ../../formularios/formacoes/index.php?id_usuario=$id_usuario&id_curr=$id_curr");
+}
 function CadastrarExperiencia($empresa, $cargo, $inicio, $termino, $descricao, $id_usuario){
     include_once("../config.php");
-    if(isset($_POST["cadastrar"])){
-        $empresa_experiencia = $_POST[$empresa];
-        $cargo_experiencia = $_POST[$cargo];
-        $inicio_experiencia = $_POST[$inicio];
-        $termino_experiencia = $_POST[$termino];
-        $descricao_experiencia =$_POST[$descricao];
-        $id_usuario_experiencia = $_POST[$id_usuario];
-
+    // if(isset($_POST["cadastrar"])){
+    //     $empresa_experiencia = $_POST[$empresa];
+    //     $cargo_experiencia = $_POST[$cargo];
+    //     $inicio_experiencia = $_POST[$inicio];
+    //     $termino_experiencia = $_POST[$termino];
+    //     $descricao_experiencia =$_POST[$descricao];
+    //     $id_usuario_experiencia = $_POST[$id_usuario];
+    // }
+    
         $sql = "INSERT INTO experiencias (empresa, cargo, inicio ,termino, descricao, id_usuario) VALUES ('$empresa_experiencia', '$cargo_experiencia', '$inicio_experiencia' , '$termino_experiencia', '$descricao_experiencia', '$id_usuario_experiencia');";
         $result = $conexao->query($sql);
-
+        
         $sql_novo = "SELECT id FROM experiencias ORDER BY id DESC LIMIT 1";
         $result_novo = $conexao->query($sql_novo);
         $experiencias_id_trago = mysqli_fetch_assoc($result_novo);
         $experiencias_id_trago["id"];
-
-        header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
-    }else{
+        
         header("Location: ../../telas/index_experiencias.php?id=$id_usuario_experiencia");
     }
-}
 
 function CadastrarCertificacao($instituicao, $curso, $termino, $descricao, $id_usuario){
     include_once("../config.php");
@@ -56,29 +72,6 @@ function CadastrarCertificacao($instituicao, $curso, $termino, $descricao, $id_u
     }
 }
 
-function CadastrarFormacao($instituicao, $curso, $inicio, $termino, $id_tipo, $id_usuario){
-    include_once("../config.php");
-    if(isset($_POST["cadastrar"])){
-        $instituicao_formacao = $_POST[$instituicao];
-        $curso_formacao = $_POST[$curso];
-        $inicio_formacao = $_POST[$inicio];
-        $termino_formacao = $_POST[$termino];
-        $id_tipo_formacao =$_POST[$id_tipo];
-        $id_usuario_formacao = $_POST[$id_usuario];
-    
-        $sql = "INSERT INTO formacoes (instituicao, curso, inicio ,termino, id_tipo, id_usuario) VALUES ('$instituicao_formacao', '$curso_formacao', '$inicio_formacao' , '$termino_formacao', '$id_tipo_formacao', '$id_usuario_formacao');";
-        $result = $conexao->query($sql);
-
-        $sql_novo = "SELECT id FROM formacoes ORDER BY id DESC LIMIT 1";
-        $result_novo = $conexao->query($sql_novo);
-        $formacao_id_trago = mysqli_fetch_assoc($result_novo);
-        $formacao_id_trago["id"];
-
-        header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
-    }else{
-        header("Location: ../../telas/index_formacoes.php?id=$id_usuario_formacao");
-    }
-}
 
 function CadastrarPremiacao($instituicao, $premiacao, $ano_premiacao, $descricao, $id_usuario){
     include_once("../config.php");
