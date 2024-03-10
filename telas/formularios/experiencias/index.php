@@ -72,17 +72,19 @@ if (isset($_POST["adicionar"])) {
                     <input class="formcurr-input-padrao" id="empresa" required type="text"
                         placeholder="Nome da empresa" name="empresa">
                 </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="cargo">Cargo</label>
-                    <input class="formcurr-input-padrao" id="cargo" type="text" name="cargo">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
-                    <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="termino">Ano de término</label>
-                    <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
+                <div class="formcurr-container formcurr-triplo">
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="cargo">Cargo</label>
+                        <input class="formcurr-input-padrao" id="cargo" type="text" name="cargo">
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
+                        <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="termino">Ano de término</label>
+                        <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
+                    </div>
                 </div>
                 <div class="formcurr-group">
                     <label for="descricao" class="formcurr-label-padrao" id="descricao">Descrição das atividades</label>
@@ -90,7 +92,7 @@ if (isset($_POST["adicionar"])) {
                         cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <input class="btn-principal" type="submit" value="Salvar" name="adicionar">
+            <input class="btn-principal btn-form" type="submit" value="Salvar" name="adicionar">
             <div class="form-duo-buttons">
                 <a class="btn-principal btn-a"
                     href="../../formularios/certificacoes/index.php?id_usuario=<?php echo $id_usuario ?>&id_curr=<?php echo $id_curr ?>"

@@ -67,18 +67,20 @@ if (isset($_POST["adicionar"])) {
             <input type="hidden" value="<?php echo $id_curr ?>" name="id_curr">
             <span class="formcurr-titulo">Adicionar Premiação?</span>
             <div class="formcurr-container">
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="premiacao">Premiação <span>(obrigatório)</span></label>
-                    <input class="formcurr-input-padrao" id="premiacao" required type="text" placeholder="Nome da premiacao"
-                        name="premiacao">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="instituicao">Instituicao</label>
-                    <input class="formcurr-input-padrao" id="instituicao" type="text" name="instituicao">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="ano_premiacao">Ano da Premiação</label>
-                    <input class="formcurr-input-padrao" required id="ano_premiacao" type="number" name="ano_premiacao">
+                <div class="formcurr-container formcurr-triplo">
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="premiacao">Premiação <span>(obrigatório)</span></label>
+                        <input class="formcurr-input-padrao" id="premiacao" required type="text" placeholder="Nome da premiacao"
+                            name="premiacao">
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="instituicao">Instituicao</label>
+                        <input class="formcurr-input-padrao" id="instituicao" type="text" name="instituicao">
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="ano_premiacao">Ano da Premiação</label>
+                        <input class="formcurr-input-padrao" required id="ano_premiacao" type="number" name="ano_premiacao">
+                    </div>
                 </div>
                 <div class="formcurr-group">
                     <label for="descricao" class="formcurr-label-padrao" id="descricao">Descrição da
@@ -87,7 +89,7 @@ if (isset($_POST["adicionar"])) {
                         id="descricao" cols="30" rows="10"></textarea>
                 </div>
             </div>
-            <input class="btn-principal" type="submit" value="Salvar" name="adicionar">
+            <input class="btn-principal btn-form" type="submit" value="Salvar" name="adicionar">
             <div class="form-duo-buttons">
                 <a class="btn-principal btn-a" href="../../principal/index.php" name="finalizar">Finalizar currículo</a>
             </div>

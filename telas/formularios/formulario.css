@@ -4,13 +4,11 @@
     flex-direction: column;
     gap: 24px;
 }
-
 .formcurr-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
-
 .formcurr-titulo {
     color: var(--cor-neutraE1);
     font-size: 14px;
@@ -18,25 +16,21 @@
     padding: 8px 0;
     border-bottom: 0.5px solid var(--cor-neutraE2);
 }
-
 .formcurr-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
-
 .formcurr-label-padrao {
     color: var(--cor-neutraE1);
     font-size: 12px;
     font-weight: 600;
 }
-
 .formcurr-label-padrao span {
     color: var(--cor-erro1);
     font-size: 10px;
     font-weight: 500;
 }
-
 .formcurr-input-padrao {
     border-radius: 10px;
     border: 1px solid var(--cor-neutraE2);
@@ -45,8 +39,36 @@
     font-size: 14px;
     color: var(--cor-neutraE1);
 }
-
 .form-duo-buttons{
     display: flex;
     gap: 16px;
+}
+
+@media screen and (min-width: 796px){
+    .formcurr{
+        max-width: 1128px;
+        margin: 0 auto;
+    }
+    .formcurr-container{
+        gap: 24px;
+    }
+    .formcurr-titulo{
+        font-size: 18px;
+    }
+    .formcurr-duo{
+        display: flex;
+        flex-direction: row;
+        gap: 20%;
+    }
+    .formcurr-triplo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .formcurr-duo div, .formcurr-triplo div{
+        min-width: 30%;
+    }
+    .btn-form{
+        align-self: flex-start;
+    }
 }

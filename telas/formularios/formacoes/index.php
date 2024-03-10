@@ -70,39 +70,44 @@ if (isset($_POST["adicionar"])) {
             <input type="hidden" value="<?php echo $id_curr ?>" name="id_curr">
             <span class="formcurr-titulo">Adicionar Formação Acadêmica?</span>
             <div class="formcurr-container">
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="instituicao">Instituição <span>(obrigatório)</span></label>
-                    <input class="formcurr-input-padrao" id="instituicao" required type="text"
-                        placeholder="Nome da instituição" name="instituicao">
+                <div class="formcurr-container formcurr-triplo">
+                    <di v class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="instituicao">Instituição <span>(obrigatório)</span></label>
+                        <input class="formcurr-input-padrao" id="instituicao" required type="text"
+                            placeholder="Nome da instituição" name="instituicao">
+                    </di>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="id_tipo">Tipo de formação</label>
+                        <select class="formcurr-input-padrao" name="id_tipo" id="id_tipo">
+                            <option value="">Selecione o tipo</option>
+                            <?php
+                            while ($row = mysqli_fetch_assoc($result_tipo_formacao)) {
+                                echo "<option value='$row[id]'>$row[descricao]</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="curso">Curso (Apenas pra graduação ou técnico)</label>
+                        <input class="formcurr-input-padrao" id="curso" type="text" name="curso">
+                    </div>
                 </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="id_tipo">Tipo de formação</label>
-                    <select class="formcurr-input-padrao" name="id_tipo" id="id_tipo">
-                        <option value="">Selecione o tipo</option>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result_tipo_formacao)) {
-                            echo "<option value='$row[id]'>$row[descricao]</option>";
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="curso">Curso (Apenas pra graduação ou técnico)</label>
-                    <input class="formcurr-input-padrao" id="curso" type="text" name="curso">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
-                    <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
-                </div>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="termino">Ano de término</label>
-                    <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
+
+                <div class="formcurr-container formcurr-duo">
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="inicio">Ano de início</label>
+                        <input class="formcurr-input-padrao" required id="inicio" type="number" name="inicio">
+                    </div>
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="termino">Ano de término</label>
+                        <input class="formcurr-input-padrao" required id="termino" type="number" name="termino">
+                    </div>
                 </div>
             </div>
-            <input class="btn-principal" type="submit" value="Salvar" name="adicionar">
+            <input class="btn-principal btn-form" type="submit" value="Salvar" name="adicionar">
             <div class="form-duo-buttons">
-                <a class="btn-principal btn-a" href="../../formularios/experiencias/index.php?id_usuario=<?php echo $id_usuario ?>&id_curr=<?php echo $id_curr ?>" name="finalizar">Pular</a>
-                <a class="btn-principal btn-a" href="../../principal/index.php" name="finalizar">Finalizar currículo</a>
+                <a class="btn-amarelo btn-principal btn-a " href="../../formularios/experiencias/index.php?id_usuario=<?php echo $id_usuario ?>&id_curr=<?php echo $id_curr ?>" name="finalizar">Pular</a>
+                <a class="btn-verde btn-principal btn-a " href="../../principal/index.php" name="finalizar">Finalizar currículo</a>
             </div>
         </form>
     </main>

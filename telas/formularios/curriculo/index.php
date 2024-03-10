@@ -68,17 +68,19 @@ if (isset($_POST["cadastrar"])) {
             </div>
             <div class="formcurr-container">
                 <span class="formcurr-titulo">Informações de contato</span>
-                <div class="formcurr-group">
-                    <label class="formcurr-label-padrao" for="numero_celular">Número de celular <span>(obrigatório)</span></label>
-                    <input class="formcurr-input-padrao" id="numero_celular" required type="text" placeholder="(00) 00000-0000" name="numero_celular">
-                </div>
-                <div class="formcurr-group">
-                    <label for="link_linkedin" class="formcurr-label-padrao">Link do seu Linkedin</label>
-                    <input class="formcurr-input-padrao" id="link_linkedin" type="text" placeholder="Digite o link aqui" name="link_linkedin">
-                </div>
-                <div class="formcurr-group">
-                    <label for="link_portfolio" class="formcurr-label-padrao">Link do seu portfólio</label>
-                    <input class="formcurr-input-padrao" type="text" placeholder="Digite o link aqui" name="link_portfolio">
+                <div class="formcurr-container formcurr-triplo">
+                    <div class="formcurr-group">
+                        <label class="formcurr-label-padrao" for="numero_celular">Número de celular <span>(obrigatório)</span></label>
+                        <input class="formcurr-input-padrao" id="numero_celular" required type="text" placeholder="(00) 00000-0000" name="numero_celular">
+                    </div>
+                    <div class="formcurr-group">
+                        <label for="link_linkedin" class="formcurr-label-padrao">Link do seu Linkedin</label>
+                        <input class="formcurr-input-padrao" id="link_linkedin" type="text" placeholder="Digite o link aqui" name="link_linkedin">
+                    </div>
+                    <div class="formcurr-group">
+                        <label for="link_portfolio" class="formcurr-label-padrao">Link do seu portfólio</label>
+                        <input class="formcurr-input-padrao" type="text" placeholder="Digite o link aqui" name="link_portfolio">
+                    </div>
                 </div>
                 <div class="formcurr-group">
                     <label for="resumo_profissional" class="formcurr-label-padrao" id="resumo_profissional">Resumo profissional<span>(obrigatório)</span></label>
@@ -86,7 +88,7 @@ if (isset($_POST["cadastrar"])) {
                         rows="10"></textarea>
                 </div>
             </div>
-            <input class="btn-principal" type="submit" value="Salvar dados básicos" name="cadastrar">
+            <input class="btn-principal btn-form" type="submit" value="Salvar dados básicos" name="cadastrar">
         </form>
     </main>
 
