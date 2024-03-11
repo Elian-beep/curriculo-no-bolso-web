@@ -29,32 +29,23 @@ use Dompdf\Dompdf;
 
 $dompdf = new Dompdf(['enable_remote' => true]);
 $dados = "
-<html>
-    <body>   
-    <h1>";
+<body style='font-family: Calibri, sans-serif; padding: 25px 20px;'>   
+    <h1 style='text-align: center; font-size: 14pt;'>";
 $dados = $row_usuario['nome_completo'];
 $dados .= "</h1>";
 $dados .= "
-<div>
-        <span>INFORMAÇÕES DE CONTATO</span>
-        </div>
-        <div>";
-$dados .= "
-            <span>Telefone: <span>";
-$dados .= $row_curr["numero_celular"];
-$dados .= "
-            </span>
-            </span>
-            <span>E-mail: <a href='mailto:";
-$dados .= $row_usuario["email"];
-$dados .= "}'>";
-$dados .= $row_usuario["email"];
-$dados .= "</a> 
-            </span>";
+<div style='border-bottom: 1px solid black; margin-top: 10px;'>
+    <span style='font-weight: 700; font-size: 12pt;'>
+        INFORMAÇÕES DE CONTATO
+    </span>
+</div>
+<div style='display: flex; flex-direction: column;'>";
+$dados .= "<span style='font-size: 11pt;font-weight: 700;'>Telefone: <span>". $row_curr["numero_celular"]. "</span></span>";
+$dados .= "<span style='font-size: 11pt; font-weight: 700;'>E-mail: <a href='mailto:". $row_usuario["email"]. "'>". $row_usuario["email"]. "</a></span>";
 
 if ($row_curr["link_linkedin"] != null) {
     $dados .= "
-    <span>Linkedin: <a href='";
+    <span style='font-size: 11pt; font-weight: 700;'>Linkedin: <a href='";
     $dados .= $row_curr["link_linkedin"];
     $dados .= "' >";
     $dados .= $row_curr["link_linkedin"];
@@ -62,20 +53,24 @@ if ($row_curr["link_linkedin"] != null) {
 }
 if ($row_curr["link_portfolio"] != null) {
     $dados .= "
-    <span>Portfólio: <a href='";
+    <span style='font-size: 11pt; font-weight: 700;'>Portfólio: <a href='";
     $dados .= $row_curr["link_portfolio"];
     $dados .= "' >";
     $dados .= $row_curr["link_portfolio"];
     $dados .= "</a></span>";
 }
 if (mysqli_num_rows($result_formacoes) > 0) {
-    $dados .= "<div><span>FORMAÇÃO ACADÊMICA</span></div>";
+    $dados .= "<div style='border-bottom: 1px solid black; margin-top: 10px;'>
+        <span style='font-weight: 700; font-size: 12pt;'>
+            FORMAÇÃO ACADÊMICA
+        </span>
+    </div>";
     while ($row_formacoes = mysqli_fetch_assoc($result_formacoes)) {
-        $dados .= "<div><span>";
+        $dados .= "<div><span style='font-weight: 700; font-size: 11pt;'>";
         $dados .= $row_formacoes["instituicao"];
-        $dados .= "</span> | <span>";
+        $dados .= "</span> | <span style='font-size: 11pt;'>";
         $dados .= $row_formacoes["inicio"] . " - " . $row_formacoes["termino"];
-        $dados .= "</span></div><span>";
+        $dados .= "</span></div><span style='font-size: 11pt; font-style: italic;'>";
         $sql_tipo = "SELECT * FROM tipo_formacao WHERE id = $row_formacoes[id_tipo];";
         $result_tipo = $conexao->query($sql_tipo);
         $row_tipo = $result_tipo->fetch_assoc();
@@ -84,44 +79,55 @@ if (mysqli_num_rows($result_formacoes) > 0) {
     }
 }
 if (mysqli_num_rows($result_experiencias) > 0) {
-    $dados .= "<div><span>EXPERIÊNCIAS PROFISSIONAIS</span></div>";
+    $dados .= "<div style='border-bottom: 1px solid black; margin-top: 10px;'>
+        <span style='font-weight: 700; font-size: 12pt;'>
+            EXPERIÊNCIAS PROFISSIONAIS
+        </span>
+    </div>";
     while ($row_experiencias = mysqli_fetch_assoc($result_experiencias)) {
-        $dados .= "<div><span>";
+        $dados .= "<div><span style='font-weight: 700;font-size: 11pt;'>";
         $dados .= $row_experiencias["empresa"];
-        $dados .= "</span> | <span>";
+        $dados .= "</span> | <span style='font-size: 11pt;'>";
         $dados .= $row_experiencias["inicio"] . " - " . $row_experiencias["termino"];
-        $dados .= "</span></div><span>";
+        $dados .= "</span></div><span style='font-size: 11pt; font-style: italic;'>";
         $dados .= $row_experiencias["cargo"];
-        $dados .= "</span><div><span>";
+        $dados .= "</span><div><span style='font-size: 11pt; text-align: justify;'>";
         $dados .= $row_experiencias["descricao"];
         $dados .= "</span></div>";
     }
 }
-if (mysqli_num_rows($result_certificacoes) > 0){
-    $dados .= "<div><span>CERTIFICAÇÕES</span></div>";
-    while ($row_certificacoes = mysqli_fetch_assoc($result_certificacoes)){
-        $dados .= "<div><span>";
+if (mysqli_num_rows($result_certificacoes) > 0) {
+    $dados .= "<div style='border-bottom: 1px solid black; margin-top: 10px;'>
+        <span style='font-weight: 700; font-size: 12pt;'>
+            CERTIFICAÇÕES
+        </span>
+    </div>";
+    while ($row_certificacoes = mysqli_fetch_assoc($result_certificacoes)) {
+        $dados .= "<div><span style='font-weight: 700; font-size: 11pt;'>";
         $dados .= $row_certificacoes["curso"];
-        $dados .= "</span> | <span>";
+        $dados .= "</span> | <span style='font-size: 11pt;'>";
         $dados .= $row_certificacoes["instituicao"] . " - " . $row_certificacoes["termino"];
-        $dados .= "</span></div><span>";
+        $dados .= "</span></div><span style='font-size: 11pt; text-align: justify;'>";
         $dados .= $row_certificacoes["descricao"];
         $dados .= "</span></div>";
     }
 }
-if (mysqli_num_rows($result_premiacoes) > 0){
-    $dados .= "<div><span>PREMIAÇÕES</span></div>";
-    while ($row_premiacoes = mysqli_fetch_assoc($result_premiacoes)){
-        $dados .= "<div><span>";
+if (mysqli_num_rows($result_premiacoes) > 0) {
+    $dados .= "<div style='border-bottom: 1px solid black; margin-top: 10px;'>
+        <span style='font-weight: 700; font-size: 12pt;'>
+            PREMIAÇÕES
+        </span>
+    </div>";
+    while ($row_premiacoes = mysqli_fetch_assoc($result_premiacoes)) {
+        $dados .= "<div><span style='font-weight: 700; font-size: 11pt;'>";
         $dados .= $row_premiacoes["premiacao"];
-        $dados .= "</span> | <span>";
+        $dados .= "</span> | <span style='font-size: 11pt;'>";
         $dados .= $row_premiacoes["ano_premiacao"];
-        $dados .= "</span></div><span>";
+        $dados .= "</span></div><span style='font-size: 11pt; text-align: justify;'>";
         $dados .= $row_premiacoes["descricao"];
         $dados .= "</span>";
     }
 }
-// $dados .= "";
 $dados .= "
 </div>
 </body>

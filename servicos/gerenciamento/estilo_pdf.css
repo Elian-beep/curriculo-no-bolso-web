@@ -1,0 +1,10 @@
+body {
+    font-family: Calibri, sans-serif;
+    padding: 25px 20px;
+    background: green;
+}
+
+.nome-completo {
+    text-align: center;
+    font-size: 14pt;
+}
