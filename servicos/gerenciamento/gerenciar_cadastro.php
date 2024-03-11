@@ -1,5 +1,9 @@
 <?php
 include("../funcoes/cadastros.func.php");
+include("../funcoes/usuario.func.php");
+
+//Cadastrar Usuario
+echo CadUsuario("nome_completo", "email", "senha", "senha_repetida");
 
 // curriculo
 // echo cadastrar1_curriculo("titulo", "numero_celular", "link_linkedin", "link_portfolio", "resumo_profissional", "id_usuario");

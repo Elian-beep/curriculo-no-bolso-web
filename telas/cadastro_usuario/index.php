@@ -38,7 +38,7 @@ if(isset($_POST["cadastrar"])){
             <div class="login-box-title">
                 <h1 class="login-title">Crie uma conta</h1>
             </div>
-            <form class="login-form" method="POST" action="../../servicos/usuarios/cadastrar_usuario.php">
+            <form class="login-form" method="POST" action="../../servicos/gerenciamento/gerenciar_cadastro.php">
             <!-- <form class="login-form" method="POST"> -->
                 <div class="login-area-inputs">
                     <div class="input-group">
