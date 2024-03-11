@@ -94,7 +94,7 @@ if ($result_select_usuario->num_rows > 0) {
                                 <a href="">
                                     <img src="../../imagens/icon-caneta.svg" alt="ícone de lapis">
                                 </a>
-                                <a href="">
+                                <a href="../../servicos/gerenciamento/gerar_pdf.php?id_usuario=<?php echo $row_usuario["id"] ?>&id_curr=<?php echo $row['id'] ?>">
                                     <img src="../../imagens/icon-download.svg" alt="ícone de download">
                                 </a>
                                 <a href="../../servicos/curriculos/apagar_curriculo.php?id=<?php echo $row['id'] ?>">
